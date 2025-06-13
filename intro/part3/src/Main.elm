@@ -16,6 +16,14 @@ import Html.Events exposing (onClick)
 -- MODEL
 
 
+type alias Model =
+    { tags : List String
+    , selectedTag : String
+    , allArticles : List Article.Article
+    }
+
+
+initialModel : Model
 initialModel =
     { tags = Article.tags
     , selectedTag = "elm"
@@ -27,6 +35,13 @@ initialModel =
 -- UPDATE
 
 
+type alias Msg =
+    { description : String
+    , data : String
+    }
+
+
+update : Msg -> Model -> Model
 update msg model =
     if msg.description == "ClickedTag" then
         { model | selectedTag = msg.data }
@@ -35,9 +50,11 @@ update msg model =
         model
 
 
+
 -- VIEW
 
 
+view : Model -> Html Msg
 view model =
     let
         articles =
@@ -80,6 +97,7 @@ viewBanner =
         ]
 
 
+viewTag : String -> String -> Html Msg
 viewTag selectedTagName tagName =
     let
         otherClass =

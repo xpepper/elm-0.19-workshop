@@ -1,10 +1,15 @@
-module Article exposing (feed, tags)
+module Article exposing (feed, tags, Article)
 
 -- For now, this module only holds hardcoded data.
 --
 -- In future exercises, it will read data from the server!
 
 
+type alias Article =
+    { title : String, description : String, body : String, tags : List String, slug : String }
+
+
+tags : List String
 tags =
     [ "elm"
     , "fun"
@@ -13,6 +18,7 @@ tags =
     ]
 
 
+feed : List Article
 feed =
     [ { title = "Elm is fun!", description = "Elm", body = "I've really been enjoying it!", tags = [ "elm", "fun" ], slug = "elm-is-fun--zb6nba" }
     , { title = "Who says undefined isn't a function anyway?", description = "Functions", body = "Quite frankly I think undefined can be anything it wants to be,if it believes in itself.", slug = "who-says-undefined-isnt-a-function-anyway-t39ope", tags = [ "programming" ] }
