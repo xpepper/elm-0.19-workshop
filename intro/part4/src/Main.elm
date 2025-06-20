@@ -1,6 +1,6 @@
 module Main exposing (main)
 
-import Article exposing (Article)
+import Article exposing (Article, Tag)
 import Browser
 import Html exposing (..)
 import Html.Attributes exposing (..)
@@ -12,8 +12,8 @@ import Html.Events exposing (onClick)
 
 
 type alias Model =
-    { tags : List String
-    , selectedTag : String
+    { tags : List Tag
+    , selectedTag : Tag
     , allArticles : List Article
     }
 
