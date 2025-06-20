@@ -94,7 +94,7 @@ viewBanner =
         ]
 
 
-viewTag : String -> String -> Html Msg
+viewTag : Tag -> Tag -> Html Msg
 viewTag selectedTagName tagName =
     let
         otherClass =
