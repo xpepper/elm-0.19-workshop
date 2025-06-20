@@ -1,8 +1,17 @@
-module Article exposing (feed, tags)
+module Article exposing (Article, feed, tags)
 
 -- For now, this module only holds hardcoded data.
 --
 -- In future exercises, it will read data from the server!
+
+
+type alias Article =
+    { title : String
+    , description : String
+    , body : String
+    , tags : List String
+    , slug : String
+    }
 
 
 tags =
