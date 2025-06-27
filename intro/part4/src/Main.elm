@@ -52,10 +52,12 @@ update msg model =
 view : Model -> Html Msg
 view model =
     let
+        articles : List Article
         articles =
             List.filter (\article -> List.member model.selectedTag article.tags)
                 model.allArticles
 
+        feed : List (Html msg)
         feed =
             List.map viewArticle articles
     in
