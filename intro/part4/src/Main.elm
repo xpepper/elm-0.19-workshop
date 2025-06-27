@@ -30,21 +30,15 @@ initialModel =
 -- UPDATE
 
 
-type alias Msg =
-    { description : String
-    , data : String
-    }
+type Msg =
+    ClickedTag String
 
 
 update : Msg -> Model -> Model
 update msg model =
-    if msg.description == "ClickedTag" then
-        { model | selectedTag = msg.data }
-
-    else
-        model
-
-
+    case msg of
+        ClickedTag tagName ->
+            { model | selectedTag = tagName }
 
 -- VIEW
 
@@ -108,7 +102,7 @@ viewTag selectedTagName tagName =
     in
     button
         [ class ("tag-pill " ++ otherClass)
-        , onClick { description = "ClickedTag", data = tagName }
+        , onClick (ClickedTag tagName)
         ]
         [ text tagName ]
 
