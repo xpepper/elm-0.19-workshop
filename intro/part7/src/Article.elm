@@ -1,23 +1,22 @@
-module Article
-    exposing
-        ( Article
-        , Full
-        , Preview
-        , author
-        , body
-        , favorite
-        , favoriteButton
-        , fetch
-        , fromPreview
-        , fullDecoder
-        , mapAuthor
-        , metadata
-        , previewDecoder
-        , slug
-        , unfavorite
-        , unfavoriteButton
-        , url
-        )
+module Article exposing
+    ( Article
+    , Full
+    , Preview
+    , author
+    , body
+    , favorite
+    , favoriteButton
+    , fetch
+    , fromPreview
+    , fullDecoder
+    , mapAuthor
+    , metadata
+    , previewDecoder
+    , slug
+    , unfavorite
+    , unfavoriteButton
+    , url
+    )
 
 {-| The interface to the Article data structure.
 
@@ -47,7 +46,7 @@ import Markdown
 import Profile exposing (Profile)
 import Time
 import Timestamp
-import Username as Username exposing (Username)
+import Username exposing (Username)
 import Viewer exposing (Viewer)
 import Viewer.Cred as Cred exposing (Cred)
 
