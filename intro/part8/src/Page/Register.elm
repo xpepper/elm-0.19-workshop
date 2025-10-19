@@ -155,34 +155,10 @@ update msg model =
                 responseDecoder =
                     Decode.field "user" Viewer.decoder
 
-                {- 👉 TODO: Create a Http.Request value that represents
-                      a POST request to "/api/users"
-
-                   💡 HINT 1: Documentation for `Http.post` is here:
-
-                       http://package.elm-lang.org/packages/elm-lang/http/1.0.0/Http#post
-
-                   💡 HINT 2: Look at the values defined above in this
-                   let-expression. What are their types? What are the types the
-                   `Http.post` function is looking for?
-                -}
-                request : Http.Request Viewer
-                request =
-                    Debug.todo "Call Http.post to represent a POST to /api/users"
-
-                {- 👉 TODO: Use Http.send to turn the request we just defined
-                   into a Cmd for `update` to execute.
-
-                   💡 HINT 1: Documentation for `Http.send` is here:
-
-                    http://package.elm-lang.org/packages/elm-lang/http/1.0.0/Http#send
-
-                   💡 HINT 2: The `CompletedRegister` variant defined in `type Msg`
-                    will be useful here!
-                -}
                 cmd : Cmd Msg
                 cmd =
-                    Cmd.none
+                    Http.post "/api/users" requestBody responseDecoder
+                        |> Http.send CompletedRegister
             in
             ( { model | problems = [] }, cmd )
 
